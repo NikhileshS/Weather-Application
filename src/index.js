@@ -2,6 +2,7 @@ import "./output.css";
 import { getdataC,getdataF } from "./getdata";
 import { todaydata,tommorrowdata,next5days } from "./Datafunction";
 
+let locationdata = 'Chennai'
 
 let metric = 'C'
 
@@ -19,6 +20,7 @@ const main = async(location) =>{
         todaydata(response.days);
         tommorrowdata(response.days);
         next5days(response.days);
+        changemetric()
 
         locationID.innerHTML = response.resolvedAddress
     }
@@ -26,28 +28,63 @@ const main = async(location) =>{
         console.error("Bad Function Error",error);
     }
 }
+const changemetric = ()=>{
+    if(metric === 'C'){
+        let tempclass = document.querySelectorAll('.tempclass')
+        tempclass.forEach(e=>{
+            e.innerHTML = e.innerHTML + `°C`
+        })
+        let windspeed = document.querySelectorAll('.windspeed')
+        windspeed.forEach(e=>{
+            e.innerHTML = e.innerHTML + `m/s`
+        })
+    }
+    else if(metric === 'F'){
+        let tempclass = document.querySelectorAll('.tempclass')
+        tempclass.forEach(e=>{
+            e.innerHTML = e.innerHTML + `°F`
+        })
+        let windspeed = document.querySelectorAll('.windspeed')
+        windspeed.forEach(e=>{
+            e.innerHTML = e.innerHTML + `mph`
+        })
+    }
+}
 
 const degreebutton = document.getElementById('degreebtn')
 degreebutton.addEventListener('click', async()=>{
     if(metric === 'F'){
-        let response = await getdataC('Chennai');
-        todaydata(response.days);
-        tommorrowdata(response.days);
-        next5days(response.days);
+        main(locationdata).then(()=>{
+            metric = 'C'
+        }) 
     }
-    metric = 'C' 
 })
 
 const farenbutton = document.getElementById('farenbtn')
 farenbutton.addEventListener('click', async () => {
     if(metric === 'C'){
-        let response = await getdataF('Chennai');
-        todaydata(response.days);
-        tommorrowdata(response.days);
-        next5days(response.days);
+        main(locationdata).then(()=>{
+            metric = 'F'
+        })
     }
-    metric = 'F'
 })
+
+const searchbar = document.getElementById('searchbar');
+searchbar.addEventListener('keypress', (e)=>{
+    if(e.key == 'Enter'){
+        locationdata = searchbar.value
+        main(locationdata)
+        searchbar.value = ''
+    }
+})
+
+const searchbtn = document.getElementById('searchbtn');
+searchbtn.addEventListener('click',()=>{
+    locationdata = searchbar.value
+    main(locationdata)
+    searchbar.value = ''
+})
+
 main('Chennai')
 
 

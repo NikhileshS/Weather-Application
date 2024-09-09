@@ -21,7 +21,7 @@ const todaydata = (data) =>{
     const todaywindspeed = document.getElementById('todaywind')
     todaywindspeed.innerHTML = `Wind Speed : ${windspeed}`
     const todayhumidity = document.getElementById('todayhumidity')
-    todayhumidity.innerHTML = `Humidity : ${humidity}`
+    todayhumidity.innerHTML = `Humidity : ${humidity}%`
 }
 
 const tommorrowdata = (data) =>{
@@ -46,7 +46,7 @@ const tommorrowdata = (data) =>{
     const tommorrowwindspeed = document.getElementById('tommorrowwind')
     tommorrowwindspeed.innerHTML = `Wind Speed : ${windspeed}`
     const tommorrowhumidity = document.getElementById('tommorrowhumidity')
-    tommorrowhumidity.innerHTML = humidity
+    tommorrowhumidity.innerHTML = `Humidity : ${humidity}%`
 
 }
 
@@ -60,7 +60,7 @@ const next5days = (data) =>{
         const temp = data[i].temp
         const newday = `<div class="flex flex-col p-10 items-center justify-center gap-3 flex-1 bg-zinc-800 rounded-3xl">
                                     <img src="./assets/${icon}.svg" alt="weatherimage" class="w-24 h-24">
-                                    <p class="text-3xl">${temp}</p>
+                                    <p class="text-3xl tempclass">${temp}</p>
                                     <p>${date}</p>
                                 </div>`
         next5days.innerHTML += newday;
