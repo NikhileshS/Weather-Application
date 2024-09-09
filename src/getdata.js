@@ -21,4 +21,4 @@ const getdataF = async(place) =>{
     }
 }
 
-export {getdataC,getdataC}
+export {getdataC,getdataF}

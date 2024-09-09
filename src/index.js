@@ -1,3 +1,13 @@
 import "./output.css";
 
-let vew = 100;
+const icon = ()=>{
+    const nextdays = document.getElementById('nextdays')
+    nextdays.innerHTML = ``
+    console.log(nextdays.innerHTML)
+
+}
+
+icon()
+
+
+
