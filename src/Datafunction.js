@@ -8,18 +8,19 @@ const todaydata = (data) =>{
     const windspeed = data[0].windspeed
     const humidity = data[0].humidity
 
+    console.log(todayicon)
     const icon = document.getElementById('todayicon').src = `./assets/${todayicon}.svg`
     const todaytemp = document.getElementById('todaytemp')
     todaytemp.innerHTML = temp
     const todaytempmax = document.getElementById('todaytempmax')
-    todaytempmax.innerHTML = tempmax
+    todaytempmax.innerHTML = `Max Temperature : ${tempmax}`
     const todaytempmin = document.getElementById('todaytempmin')
-    todaytempmin = tempmin
+    todaytempmin.innerHTML = `Min Temperature : ${tempmin}`
     const todaydate = document.getElementById('todaydate')
     todaydate.innerHTML = date
     const todaywindspeed = document.getElementById('todaywind')
-    todaywindspeed.innerHTML = windspeed
-    const todayhumidity = docuument.getElementById('todayhumidity')
+    todaywindspeed.innerHTML = `Wind Speed : ${windspeed}`
+    const todayhumidity = document.getElementById('todayhumidity')
     todayhumidity.innerHTML = humidity
 }
 
@@ -37,31 +38,33 @@ const tommorrowdata = (data) =>{
     const tommorrowtemp = document.getElementById('tommorrowtemp')
     tommorrowtemp.innerHTML = temp
     const tommorrowtempmax = document.getElementById('tommorrowtempmax')
-    tommorrowtempmax.innerHTML = tempmax
+    tommorrowtempmax.innerHTML = `Max Temperature : ${tempmax}`
     const tommorrowtempmin = document.getElementById('tommorrowtempmin')
-    tommorrowtempmin = tempmin
+    tommorrowtempmin.innerHTML = `Min Temperature : ${tempmin}`
     const tommorrowdate = document.getElementById('tommorrowdate')
     tommorrowdate.innerHTML = date
     const tommorrowwindspeed = document.getElementById('tommorrowwind')
-    tommorrowwindspeed.innerHTML = windspeed
-    const tommorrowhumidity = docuument.getElementById('tommorrowhumidity')
+    tommorrowwindspeed.innerHTML = `Wind Speed : ${windspeed}`
+    const tommorrowhumidity = document.getElementById('tommorrowhumidity')
     tommorrowhumidity.innerHTML = humidity
 
 }
 
 const next5days = (data) =>{
 
-    const nextdays = document.getElementById('nextdays')
-    
+    const next5days = document.getElementById('nextdays')
+    next5days.innerHTML = ''
     for(let i = 2;i<=6;i++){
         const icon = data[i].icon
         const date = data[i].datetime
         const temp = data[i].temp
-
-        nextdays.innerHTML += `<div class="flex flex-col p-10 items-center justify-center gap-3 flex-1 bg-zinc-800 rounded-3xl">
-                                    <img class="w-24 h-24 src ="./assets/${icon}">
+        const newday = `<div class="flex flex-col p-10 items-center justify-center gap-3 flex-1 bg-zinc-800 rounded-3xl">
+                                    <img src="./assets/${icon}.svg" alt="weatherimage" class="w-24 h-24">
                                     <p class="text-3xl">${temp}</p>
                                     <p>${date}</p>
                                 </div>`
+        next5days.innerHTML += newday;
     }
 } 
+
+export {next5days,todaydata,tommorrowdata}
