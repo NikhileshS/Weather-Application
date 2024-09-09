@@ -1,86 +1,139 @@
 <!doctype html>
 <html>
-<head>
-  <title>Weather Application</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="./output.css" rel="stylesheet">
-</head>
-<body class="flex items-center flex-col min-h-screen bg-[#18181B] w-screen text-white">
-  <div class="flex flex-col flex-1 px-8 max-w-[1200px] w-full">
-    <div class="flex flex-col gap-6 w-full max-w-[1200px] mt-2">
-    <div class="w-full max-w-[1200px] flex justify-between mt-7 max-[600px]:flex-col-reverse max-[600px]:items-center max-[600px]:gap-4 ">
-      <div id="location" class="text-4xl font-bold">LOCATION</div>
-      <div class="flex gap-2 items-center">
-        <input id="searchbar" class="text-2xl bg-zinc-700 max-[400px]:w-full rounded-xl pl-4 h-12 w-80" placeholder="Enter Location" type="text">
-        <img id="searchbtn" src="./assets/searchicon.png" class="w-7 h-7 cursor-pointer">
-      </div>
-    </div>
-    <div class="w-full max-w-[1200px] flex justify-between max-[600px]:justify-center max-[600px]:gap-10">
-      <div class="text-xl font-bold text-center pt-1">12:30</div>
-      <div class="flex">
-        <button id="degreebtn" class=" bg-zinc-600 rounded-l-xl w-10 h-10">°F</button>
-        <button id="farenbtn" class=" w-10 rounded-r-xl  bg-zinc-800">°C</button>
-      </div>
-    </div>
-    </div>
-    <div class="flex-1 mt-10">
-    <div class="flex items-center justify-between gap-10 flex-col lg:flex-row">
-      <div id="today" class="w-full flex items-center justify-between p-10 min-[1200px]:basis-[55%] max-[1200px]:flex-col max-[1200px]:gap-8 bg-zinc-800 rounded-3xl">
-        <div class="flex flex-col items-center gap-10">
-        <img id="todayicon" class="w-32" alt="weatherimage">
-        <div id="todaytemp" class="text-5xl font-bold tempclass">Temperature</div>
+  <head>
+    <title>Weather Application</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./output.css" rel="stylesheet" />
+  </head>
+  <body
+    class="flex items-center flex-col min-h-screen bg-[#18181B] w-screen text-white"
+  >
+    <div class="flex flex-col flex-1 px-8 max-w-[1200px] w-full">
+      <div class="flex flex-col gap-6 w-full max-w-[1200px] mt-2">
+        <div
+          class="w-full max-w-[1200px] flex justify-between mt-7 max-[600px]:flex-col-reverse max-[600px]:items-center max-[600px]:gap-4"
+        >
+          <div id="location" class="text-4xl font-bold">LOCATION</div>
+          <div class="flex gap-2 items-center">
+            <input
+              id="searchbar"
+              class="text-2xl bg-zinc-700 max-[400px]:w-full rounded-xl pl-4 h-12 w-80"
+              placeholder="Enter Location"
+              type="text"
+            />
+            <img
+              id="searchbtn"
+              src="./assets/searchicon.png"
+              class="w-7 h-7 cursor-pointer"
+            />
+          </div>
         </div>
-        <div class="flex flex-col gap-4">
-        <div id="todaydate" class="text-3xl font-bold">Date</div>
-        <div id="todaytempmax" class="tempclass" >max temp :</div>
-        <div id="todaytempmin" class="tempclass" >min Temp :</div>
-        <div id="todaywind" class="windspeed">Wind speed :</div>
-        <div id="todayhumidity">Humidity :</div>
-        </div>
-      </div>
-      <div id="tommorrow" class="w-full flex items-center justify-between p-10 min-[1200px]:basis-[55%] max-[1200px]:flex-col max-[1200px]:gap-8  bg-zinc-800 rounded-3xl">
-        <div class="flex flex-col items-center gap-10">
-        <img id="tommorrowicon" class="w-32" alt="weatherimage">
-        <div id="tommorrowtemp" class="text-5xl font-bold tempclass">Temperature</div>
-        </div>
-        <div class="flex flex-col gap-4">
-        <div id="tommorrowdate" class="text-3xl font-bold">Date</div>
-        <div id="tommorrowtempmax" class="tempclass" >max temp :</div>
-        <div id="tommorrowtempmin" class="tempclass">min Temp :</div>
-        <div id="tommorrowwind" class="windspeed">Wind speed :</div>
-        <div id="tommorrowhumidity">Humidity :</div>
+        <div
+          class="w-full max-w-[1200px] flex justify-between max-[600px]:justify-center max-[600px]:gap-10"
+        >
+          <div class="text-xl font-bold text-center pt-1">12:30</div>
+          <div class="flex">
+            <button id="degreebtn" class="bg-zinc-600 rounded-l-xl w-10 h-10">
+              °F
+            </button>
+            <button id="farenbtn" class="w-10 rounded-r-xl bg-zinc-800">
+              °C
+            </button>
+          </div>
         </div>
       </div>
+      <div class="flex-1 mt-10">
+        <div
+          class="flex items-center justify-between gap-10 flex-col lg:flex-row"
+        >
+          <div
+            id="today"
+            class="w-full flex items-center justify-between p-10 min-[1200px]:basis-[55%] max-[1200px]:flex-col max-[1200px]:gap-8 bg-zinc-800 rounded-3xl"
+          >
+            <div class="flex flex-col items-center gap-10">
+              <img id="todayicon" class="w-32" alt="weatherimage" />
+              <div id="todaytemp" class="text-5xl font-bold tempclass">
+                Temperature
+              </div>
+            </div>
+            <div class="flex flex-col gap-4 text-center">
+              <div id="todaydate" class="text-3xl font-bold">Date</div>
+              <div id="todaytempmax" class="tempclass font-semibold">
+                max temp :
+              </div>
+              <div id="todaytempmin" class="tempclass font-semibold">
+                min Temp :
+              </div>
+              <div id="todaywind" class="windspeed font-semibold">
+                Wind speed :
+              </div>
+              <div id="todayhumidity" class="font-semibold">Humidity :</div>
+            </div>
+          </div>
+          <div
+            id="tommorrow"
+            class="w-full flex items-center justify-between p-10 min-[1200px]:basis-[55%] max-[1200px]:flex-col max-[1200px]:gap-8 bg-zinc-800 rounded-3xl"
+          >
+            <div class="flex flex-col items-center gap-10">
+              <img id="tommorrowicon" class="w-32" alt="weatherimage" />
+              <div id="tommorrowtemp" class="text-5xl font-bold tempclass">
+                Temperature
+              </div>
+            </div>
+            <div class="flex flex-col gap-4 text-center">
+              <div id="tommorrowdate" class="text-3xl font-bold">Date</div>
+              <div id="tommorrowtempmax" class="tempclass font-semibold">
+                max temp :
+              </div>
+              <div id="tommorrowtempmin" class="tempclass font-semibold">
+                min Temp :
+              </div>
+              <div id="tommorrowwind" class="windspeed font-semibold">
+                Wind speed :
+              </div>
+              <div id="tommorrowhumidity" class="font-semibold">Humidity :</div>
+            </div>
+          </div>
+        </div>
+        <div id="nextdays" class="flex gap-4 my-10 flex-wrap items-center">
+          <div
+            class="flex flex-col p-10 items-center justify-center gap-3 flex-1 bg-zinc-800 rounded-3xl"
+          >
+            <img class="w-24 h-24" />
+            <p class="text-3xl tempclass">Temperature</p>
+            <p>date</p>
+          </div>
+          <div
+            class="flex flex-col p-10 items-center justify-center gap-3 flex-1 bg-zinc-800 rounded-3xl"
+          >
+            <img class="w-24 h-24" />
+            <p class="text-3xl tempclass">Temperature</p>
+            <p>date</p>
+          </div>
+          <div
+            class="flex flex-col p-10 items-center justify-center gap-3 flex-1 bg-zinc-800 rounded-3xl"
+          >
+            <img class="w-24 h-24" />
+            <p class="text-3xl tempclass">Temperature</p>
+            <p>date</p>
+          </div>
+          <div
+            class="flex flex-col p-10 items-center justify-center gap-3 flex-1 bg-zinc-800 rounded-3xl"
+          >
+            <img class="w-24 h-24" />
+            <p class="text-3xl tempclass">Temperature</p>
+            <p>date</p>
+          </div>
+          <div
+            class="flex flex-col p-10 items-center justify-center gap-3 flex-1 bg-zinc-800 rounded-3xl"
+          >
+            <img class="w-24 h-24" />
+            <p class="text-3xl tempclass">Temperature</p>
+            <p>date</p>
+          </div>
+        </div>
+      </div>
     </div>
-    <div id="nextdays" class="flex gap-4 my-10 flex-wrap items-center">
-      <div class="flex flex-col p-10 items-center justify-center gap-3 flex-1 bg-zinc-800 rounded-3xl">
-        <img class="w-24 h-24">
-        <p class="text-3xl tempclass">Temperature</p>
-        <p>date</p>
-      </div>
-      <div class="flex flex-col p-10 items-center justify-center gap-3 flex-1 bg-zinc-800 rounded-3xl">
-        <img class="w-24 h-24">
-        <p class="text-3xl tempclass">Temperature</p>
-        <p>date</p>
-      </div>
-      <div class="flex flex-col p-10 items-center justify-center gap-3 flex-1 bg-zinc-800 rounded-3xl">
-        <img class="w-24 h-24">
-        <p class="text-3xl tempclass">Temperature</p>
-        <p>date</p>
-      </div>
-      <div class="flex flex-col p-10 items-center justify-center gap-3 flex-1 bg-zinc-800 rounded-3xl">
-        <img class="w-24 h-24">
-        <p class="text-3xl tempclass">Temperature</p>
-        <p>date</p>
-      </div>
-      <div class="flex flex-col p-10 items-center justify-center gap-3 flex-1 bg-zinc-800 rounded-3xl">
-        <img class="w-24 h-24">
-        <p class="text-3xl tempclass">Temperature</p>
-        <p>date</p>
-      </div>
-    </div>
-    </div>
-  </div>
-</body>
+  </body>
 </html>
