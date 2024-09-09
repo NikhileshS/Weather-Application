@@ -21,7 +21,7 @@ const todaydata = (data) =>{
     const todaywindspeed = document.getElementById('todaywind')
     todaywindspeed.innerHTML = `Wind Speed : ${windspeed}`
     const todayhumidity = document.getElementById('todayhumidity')
-    todayhumidity.innerHTML = humidity
+    todayhumidity.innerHTML = `Humidity : ${humidity}`
 }
 
 const tommorrowdata = (data) =>{

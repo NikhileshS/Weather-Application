@@ -27,6 +27,27 @@ const main = async(location) =>{
     }
 }
 
-main('America')
+const degreebutton = document.getElementById('degreebtn')
+degreebutton.addEventListener('click', async()=>{
+    if(metric === 'F'){
+        let response = await getdataC('Chennai');
+        todaydata(response.days);
+        tommorrowdata(response.days);
+        next5days(response.days);
+    }
+    metric = 'C' 
+})
+
+const farenbutton = document.getElementById('farenbtn')
+farenbutton.addEventListener('click', async () => {
+    if(metric === 'C'){
+        let response = await getdataF('Chennai');
+        todaydata(response.days);
+        tommorrowdata(response.days);
+        next5days(response.days);
+    }
+    metric = 'F'
+})
+main('Chennai')
 
 
